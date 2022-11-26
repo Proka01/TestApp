@@ -13,8 +13,8 @@ public class Main {
         System.out.println("Path: " + path);
 
         try {
-            Class.forName("paket_googleDrive.GoogleDriveImplementation");
-            //Class.forName("paket_local.LocalStorageImpl");
+            //Class.forName("paket_googleDrive.GoogleDriveImplementation");
+            Class.forName("paket_local.LocalStorageImpl");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -60,6 +60,7 @@ public class Main {
             System.out.println("15. is_containing_file");
             System.out.println("16. is_containing_files");
             System.out.println("17. grep");
+            System.out.println("18. createDirs with pattern name{L-R}");
             //System.out.println("18. sort_search_result");
             //System.out.println("19. filter_result");
 
@@ -231,6 +232,13 @@ public class Main {
                 List<String> list = storage.grep(option_args[1]);
                 for (String s : list)
                     System.out.println(s);
+            }
+            else if(option_args[0].equals("18."))
+            {
+                if(option_args[2].equals("."))
+                    storage.createDirs(option_args[1],"");
+                else
+                    storage.createDirs(option_args[1],option_args[2]);
             }
 
         }
