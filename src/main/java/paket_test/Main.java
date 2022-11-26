@@ -13,7 +13,8 @@ public class Main {
         System.out.println("Path: " + path);
 
         try {
-            Class.forName("paket_local.LocalStorageImpl");
+            Class.forName("paket_googleDrive.GoogleDriveImplementation");
+            //Class.forName("paket_local.LocalStorageImpl");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -32,8 +33,8 @@ public class Main {
 
         if(option.equals("y"))
         {
-            String storage_name = path.substring(path.lastIndexOf("/"));
-            storage.createRootDir(storage_name,path);
+            String storage_name = path.substring(path.lastIndexOf("/")+1);
+            storage.createRootDir(storage_name,path.substring(0,path.lastIndexOf("/")));
         }
 
         while (true)
